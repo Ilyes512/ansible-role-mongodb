@@ -12,7 +12,14 @@ No requirements.
 Role Variables
 --------------
 
-[TODO]
+```
+ansidev_package_state: present
+
+mongodb_package_state: "{{ ansidev_package_state }}"
+mongodb_version: "latest" # latest | version without v-prefix
+mongodb_allow_downgrade: no # yes | no
+mongodb_allow_remote: yes
+```
 
 Dependencies
 ------------
@@ -26,6 +33,11 @@ Example Playbook
   roles:
     - { role: ilyes512.mongodb, tag: ansidev.mongodb }
 ```
+
+Todo
+----------------
+
+- Add option to disable the [Transparent Huge Pages](https://docs.mongodb.com/master/tutorial/transparent-huge-pages/)
 
 License
 -------
